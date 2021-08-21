@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Напоминалка</string>
+    <string name="delete_btn">Удалить</string>
+    <string name="menu_title">Добавить новое значение</string>
+    <string name="list_name_field">Название списка</string>
+    <string name="info_app">Список дел</string>
+</resources>

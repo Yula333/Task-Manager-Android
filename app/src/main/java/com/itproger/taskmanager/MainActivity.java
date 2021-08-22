@@ -79,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
     //функция для подгрузки всех записей и вывода их в объекте listView
     private void loadAllTask() {
         ArrayList<String> allTask = dataBase.getAllTask();
-        if(arrayAdapter == null){
+        if(arrayAdapter == null){       //когда мы вызываем этот метод при старте программы из onCreate
             arrayAdapter = new ArrayAdapter<String>(this, R.layout.task_list_row, R.id.text_label_row, allTask);
             listView.setAdapter(arrayAdapter);
-        }else{
+        }else{          // вызываем на протяжении всей программы, нпр когда удалим запись, подгружаем из БД записи и выводим их в list_view
             arrayAdapter.clear();
             arrayAdapter.addAll(allTask);
             arrayAdapter.notifyDataSetChanged();
@@ -90,10 +90,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+    public boolean onCreateOptionsMenu(Menu menu) {         //привяжем свое меню с кнопкой (иконка плюсик) добавить запись
+        getMenuInflater().inflate(R.menu.main_menu, menu);  //вместо menu стандартного мы используем main_menu которое записали
 
-        Drawable icon = menu.getItem(0).getIcon();
+        Drawable icon = menu.getItem(0).getIcon();          //делаем иконку насыщенно белой
         icon.mutate();
         icon.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_IN);
         return super.onCreateOptionsMenu(menu);
